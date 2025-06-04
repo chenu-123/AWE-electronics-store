@@ -4,9 +4,10 @@ import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
 import './custom.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/Login';
+import Login from './components/login';
 import Dashboard from './components/Dashboard';
-
+import './components/login.css'; // For login page
+import './components/dashboard.css'; // For dashboard page
 function App() {
   return (
     <Router>
