@@ -11,7 +11,11 @@ function Login() {
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ email, password })
 })
-    // Will connect to Franco's backend later
+    fetch('http://localhost:8000/api/login/', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, password })
+})
     console.log(email, password);
   };
 
