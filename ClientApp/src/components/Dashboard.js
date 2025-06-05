@@ -1,17 +1,29 @@
 import React from 'react';
+import './components/Dashboard.css'; // Assuming you have a CSS file for styling
 
 function Dashboard() {
   return (
-    <div className="dashboard">
-      <h2>My Account</h2>
-      <div className="user-info">
-        <h3>Personal Details</h3>
-        {/* Will display user data here */}
-      </div>
-      <div className="orders">
-        <h3>My Orders</h3>
-        {/* Will display orders here */}
-      </div>
+    <div className="dashboard-container">
+      <h2>Welcome to Your Dashboard</h2>
+      <section>
+        <h3>Your Info</h3>
+        <p>Name: John Doe</p>
+        <p>Email: john@example.com</p>
+      </section>
+      <section>
+        <h3>Your Orders</h3>
+        <ul>
+          <li>Order #123 - $49.99 - Delivered</li>
+          <li>Order #124 - $19.99 - In Progress</li>
+        </ul>
+      </section>
+      <section>
+        <h3>Receipts</h3>
+        <ul>
+          <li>Receipt #A1 - PDF</li>
+          <li>Receipt #A2 - PDF</li>
+        </ul>
+      </section>
     </div>
   );
 }

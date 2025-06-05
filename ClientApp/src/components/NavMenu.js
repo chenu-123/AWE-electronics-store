@@ -38,7 +38,7 @@ export class NavMenu extends Component {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink tag={Link} className="text-dark nav-link-before-hover nav-link-hover" to="/">
+               <NavLink tag={Link} className="text-dark nav-link-before-hover nav-link-hover" to="./components/login">
                   <div className="nav-link__container">
                     <span className="nav__text">Sign In</span>
                   </div>

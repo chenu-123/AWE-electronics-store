@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './components/login.css'; // Assuming you have a CSS file for styling
 
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8000/api/login/', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, password })
-})
-    fetch('http://localhost:8000/api/login/', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, password })
-})
-    console.log(email, password);
+    // TODO: connect with backend login API
+    console.log('Email:', email, 'Password:', password);
+    navigate('./components/Dashboard'); // redirect after "login"
   };
 
   return (
-    <div className="login-form">
+    <div className="login-container">
       <h2>Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      <form onSubmit={handleLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required />
         <button type="submit">Login</button>
       </form>
     </div>

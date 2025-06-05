@@ -1,6 +1,6 @@
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
-import { Home } from "./components/Home";
+import { Home } from "./components/Dashboard.js";
 import { Shop } from "./components/pages/Shop/Shop";
 import { Cart} from "./components/pages/Cart/Cart.js"
 import { Checkout } from "./components/pages/Checkout/Checkout.js"
