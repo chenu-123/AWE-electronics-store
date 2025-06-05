@@ -1,29 +1,32 @@
-import React, { Component } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
 import Login from './components/login';
 import Dashboard from './components/Dashboard';
-import './custom.css';
-import './components/login.css';
-import './components/Dashboard.css';
 
-export default class App extends Component {
-  static displayName = App.name;
-
-  render() {
-    return (
+function App() {
+  return (
+    <Router>
       <Routes>
+        {/* Login and Dashboard routes outside the layout */}
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
 
-        <Route element={<Layout />}>
-          {AppRoutes.map((route, idx) => {
-            const { element, ...rest } = route;
-            return <Route key={idx} {...rest} element={element} />;
-          })}
-        </Route>
+        {/* All other routes use layout */}
+        <Route path="*" element={
+          <Layout>
+            <Routes>
+              {AppRoutes.map((route, index) => {
+                const { element, ...rest } = route;
+                return <Route key={index} {...rest} element={element} />;
+              })}
+            </Routes>
+          </Layout>
+        } />
       </Routes>
-    );
-  }
+    </Router>
+  );
 }
+
+export default App;
