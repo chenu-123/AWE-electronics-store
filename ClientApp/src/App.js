@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
-import AppRoutes from './crs/AppRoutes';
+import { Route, Routes } from 'react-router-dom';
+import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
 import Login from './components/login';
 import Dashboard from './components/Dashboard';
@@ -13,20 +13,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Layout>
-          <Routes>
-            {/* Routes from AppRoutes.js */}
-            {AppRoutes.map((route, index) => {
-              const { element, ...rest } = route;
-              return <Route key={index} {...rest} element={element} />;
-            })}
-            {/* Add Login and Dashboard routes */}
-            <Route path="./components/login" element={<Login />} />
-            <Route path="./components/Dashboard" element={<Dashboard />} />
-          </Routes>
-        </Layout>
-      </Router>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route element={<Layout />}>
+          {AppRoutes.map((route, idx) => {
+            const { element, ...rest } = route;
+            return <Route key={idx} {...rest} element={element} />;
+          })}
+        </Route>
+      </Routes>
     );
   }
 }
